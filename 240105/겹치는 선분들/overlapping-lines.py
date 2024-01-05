@@ -3,9 +3,9 @@ N, K = map(int, input().split())
 PQ = []
 start = 1
 for i in range(N):
-    op = input()
+    op = input().split()
     a = int(op[0])
-    d = op[2]
+    d = op[1]
     if d == 'R':
         end = start + a
         heapq.heappush(PQ, (start, 1))
