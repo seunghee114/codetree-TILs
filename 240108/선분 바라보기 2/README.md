@@ -5,7 +5,35 @@
 |[Intermediate Mid / Shorten time Technique / +1-1 technique](https://www.codetree.ai/missions?missionId=8)|80xp|![보통][medium]|
 
 
+## 시도한 테스트 케이스
+```
+끊어진 선분
+4
+1 1 3
+2 2 5
+3 7 10
+0 8 11
 
+4
+---------------
+포함되는 선분이 앞에 존재
+4
+3 1 8
+2 2 6
+1 10 12
+4 7 11
+
+4
+---------------
+포함되는 선분이 뒤에 존재
+4
+3 6 10
+2 4 7
+1 1 5
+0 3 8
+
+3
+```
 
 
 
