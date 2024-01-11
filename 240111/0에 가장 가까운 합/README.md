@@ -4,7 +4,18 @@
 |---|---|---|
 |[Intermediate Mid / Shorten time Technique / Two Pointer](https://www.codetree.ai/missions?missionId=8)|80xp|![보통][medium]|
 
+## 시도한 테스트 케이스
+```
+6
+-61 -9 -1 0 4 5 7
 
+1
+
+2
+0 0
+
+0
+```
 
 
 
