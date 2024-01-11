@@ -6,12 +6,11 @@ for _ in range(N):
 
 number.sort()
 answer = 0
+tail = N-1
 for head in range(N-1):
-    for tail in range(head + 1, N):
-        acc = number[head] + number[tail]
-        if acc <= K:
-            answer += 1
-        else:
-            break
-    
+    while tail != 0 and number[head] + number[tail] > K:
+        tail -= 1
+    if head >= tail:
+        break
+    answer += tail - head
 print(answer)
