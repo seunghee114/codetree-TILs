@@ -5,15 +5,13 @@ for _ in range(N):
 # end input
 
 number.sort()
-head = 0
-tail = 1
 answer = 0
-while head < tail:
-    acc = number[head] + number[tail]
-    if acc <= K:
-        answer += 1
-    if tail == N-1:
-        head += 1
-    else:
-        tail += 1
+for head in range(N-1):
+    for tail in range(head + 1, N):
+        acc = number[head] + number[tail]
+        if acc <= K:
+            answer += 1
+        else:
+            break
+    
 print(answer)
