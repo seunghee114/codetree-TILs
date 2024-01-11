@@ -6,11 +6,11 @@ for _ in range(N):
 # end input
 
 answer = 0
-for i in range(2*K + 1):
+tail = min(2*K, 1000000)
+for i in range(tail + 1):
     answer += candy[i]
 
 head = 0
-tail = 2 * K
 acc = answer
 while True:
     acc -= candy[head] 
