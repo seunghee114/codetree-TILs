@@ -10,8 +10,10 @@ Board = [list(map(int, input().split())) for _ in range(N)]
 # end input
 idx = -1
 for i in range(N):
-    if isAvailable(Board, i, K, M):
-        idx = i
+    if not isAvailable(Board, i, K, M):
+        break
+    idx = i
+    
 for j in range(M):
     Board[idx][j + K] = 1
 for i in range(N):
