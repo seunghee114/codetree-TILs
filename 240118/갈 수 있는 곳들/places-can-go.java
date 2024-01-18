@@ -23,8 +23,8 @@ public class Main {
         start = new int[K][2];
         for(int k = 0; k < K; k++){
             inArr = br.readLine().split(" ");
-            start[k][0] = Integer.parseInt(inArr[0]);
-            start[k][1] = Integer.parseInt(inArr[1]);
+            start[k][0] = Integer.parseInt(inArr[0])-1;
+            start[k][1] = Integer.parseInt(inArr[1])-1;
         }
         // end input
         System.out.println(BFS());
