@@ -9,7 +9,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] inArr = br.readLine().split(" ");
         N = Integer.parseInt(inArr[0]);
-        M = Integer.parseInt(inArr[0]);
+        M = Integer.parseInt(inArr[1]);
         Snake = new boolean[N][M];
         for(int i = 0; i < N; i++){
             inArr = br.readLine().split(" ");
