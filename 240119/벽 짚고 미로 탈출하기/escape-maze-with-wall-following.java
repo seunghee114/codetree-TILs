@@ -40,6 +40,7 @@ public class Main {
                 int d = clockwise[pop[2]];
                 int ci = ni + di[d];
                 int cj = nj + dj[d];
+                if(ci < 0 || cj < 0 || ci >= N || cj >= N) continue;
                 if(wall[ci][cj]){
                     Q.add(new int[]{ni, nj, pop[2], pop[3]+1});
                     visit[ni][nj][pop[2]] = true;
