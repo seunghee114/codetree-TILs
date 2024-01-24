@@ -19,6 +19,7 @@ public class Main {
     }
 
     static int BFS(int[] start, int[] end) {
+        if(start[0] == end[0] && start[1] == end[1]) return 0;
         boolean[][] visit = new boolean[N][N];
         Queue<int[]> Q = new ArrayDeque<>();
         visit[start[0]][start[1]] = true;
