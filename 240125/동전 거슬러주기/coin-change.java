@@ -26,6 +26,6 @@ public class Main {
                 dp[price] = Math.min(dp[price], temp); 
             }
         }
-        System.out.println(dp[M]);
+        System.out.println(dp[M] != Integer.MAX_VALUE ? dp[M] : -1);
     }
 }
