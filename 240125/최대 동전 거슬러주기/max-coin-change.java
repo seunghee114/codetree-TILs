@@ -15,8 +15,6 @@ public class Main {
         // end input
 
         int[] dp =new int[M+1];
-        Arrays.fill(dp, -1);
-        dp[0] = 0;
         for(int price = 1; price <= M; price++){
             for(Integer coin : coins){
                 int temp = price - coin;
@@ -24,6 +22,6 @@ public class Main {
                 dp[price] = Math.max(dp[price], dp[temp]+1);
             }
         }
-        System.out.println(dp[M]);
+        System.out.println(dp[M] != 0 ? dp[M] : -1);
     }
 }
