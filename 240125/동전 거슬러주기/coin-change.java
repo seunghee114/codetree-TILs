@@ -21,7 +21,7 @@ public class Main {
         for(int price = 1; price <= M; price++){
             for(Integer coin : coins){
                 int temp = price - coin;    // coin 동전을 쓰기 전에 만들었던 금액
-                if(temp < 0) continue;      // 0보다 작으면 안돼
+                if(temp < 0 || dp[temp] == Integer.MAX_VALUE) continue;      // 0보다 작거나 dp 값이 max value면 안돼
                 temp = dp[temp] + 1;        // temp 금액을 만들었을 때 사용한 동전 개수에 coin 동전 1개 추가 
                 dp[price] = Math.min(dp[price], temp); 
             }
