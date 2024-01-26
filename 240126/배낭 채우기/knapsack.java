@@ -20,31 +20,21 @@ public class Main {
         }
         // end input
 
-        // dp[i][j][0] : i번 item까지 고려하고 i번 item을 꼭 사용하고, 무게가 j일 때, 최대 가치
-        // dp[i][j][1] : i번 item까지 고려하고 i번 item을 사용 안 하고, 무게가 j일 때, 최대 가치
-        int[][][] dp = new int[N+1][M+1][2];    
-        for (int i = 1; i < N+1; i++) {
-            for (int j = 1; j < M + 1; j++) {
-                dp[i][j] = new int[]{Integer.MIN_VALUE, Integer.MIN_VALUE};
-            }
-        }
-        int answer = 0;
+        // dp[i][j] : i번까지 고려했고, j번 무게일 때, 최대 가치
+        int[][] dp = new int[N + 1][M + 1];
+
         for (int i = 1; i < N + 1; i++) {
-            for (int weight = 1; weight < M + 1; weight++) {
-                int tempW = weight - items[i][0];
-                // i번 item 사용
-                if (tempW >= 0) {
-                    // i-1번 item 사용했을 때랑, 안했을 때 중 큰 값
-                    int value = Math.max(dp[i-1][tempW][0], dp[i-1][tempW][1]);
-                    if (value == Integer.MIN_VALUE) {
-                        continue;
-                    }
-                    dp[i][weight][0] = value + items[i][1];
+            for (int j = 1; j < M + 1; j++) {
+                // i번 사용 안함
+                dp[i][j] = dp[i-1][j];
+
+                // i번 사용
+                int tempW = j - items[i][0];
+                if (tempW >= 0){
+                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][tempW] + items[i][1]);
                 }
-                // i번 item 사용 안함
-                dp[i][weight][1] = Math.max(dp[i - 1][weight][0], dp[i - 1][weight][1]);
             }
         }
-        System.out.println(Math.max(dp[N][M][0], dp[N][M][1]));
+        System.out.println(dp[N][M]);
     }
 }
