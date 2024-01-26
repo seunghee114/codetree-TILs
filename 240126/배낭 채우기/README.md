@@ -5,9 +5,21 @@
 |[Intermediate Low / DP I / 아이템을 적절히 고르는 문제](https://www.codetree.ai/missions?missionId=2)|90xp|![보통][medium]|
 
 
+## 3차원 DP, 2차원 DP, 1차원 DP
+### 3차원 DP : knapsack_v1
+dp[ i ][ j ][ 0 ] : i번 아이템까지 고려했고 i번 아이템을 사용했고, 무게가 j일 때 최대 가치
+dp[ i ][ j ][ 1 ] : i번 아이템까지 고려했고 i번 아이템을 사용 안했고, 무게가 j일 때 최대 가치
 
+### 2차원 DP : knapsack_v2
+dp[ i ][ j ] : i번 아이템까지 고려했고 무게가 j일 때 최대 가치
 
+### 1차원 DP : knapsack
+dp[ j ] : 무게가 j일 때 최대 가치
+아이템을 고려하는 것이 사라졌기 때문에 각 아이템 별로 dp 배열을 채워나갈 때, 무게 M부터 0까지로 채워나가야 아이템을 중복 사용하는 것을 방지할 수 있다.
 
+![image](https://github.com/seunghee114/codetree-TILs/assets/43427305/66a8153d-bbbd-41ef-bf6f-8c8a75052384)
+
+위에서부터 순서대로 1차원 DP, 2차원 DP, 3차원 DP
 
 
 
