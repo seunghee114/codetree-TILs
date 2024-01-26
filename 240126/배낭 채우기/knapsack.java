@@ -20,21 +20,19 @@ public class Main {
         }
         // end input
 
-        // dp[i][j] : i번까지 고려했고, j번 무게일 때, 최대 가치
-        int[][] dp = new int[N + 1][M + 1];
-
+        // dp[i] : 무게가 i일 때, 최대 가치
+        int[] dp = new int[M + 1];
+        int answer = 0;
+        Arrays.fill(dp, Integer.MIN_VALUE);
+        dp[0] = 0;
         for (int i = 1; i < N + 1; i++) {
-            for (int j = 1; j < M + 1; j++) {
-                // i번 사용 안함
-                dp[i][j] = dp[i-1][j];
-
-                // i번 사용
-                int tempW = j - items[i][0];
-                if (tempW >= 0){
-                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][tempW] + items[i][1]);
-                }
+            for (int w = M; w > 0; w--) {
+                int tempW = w - items[i][0];
+                if (tempW < 0 || dp[tempW] == Integer.MIN_VALUE) continue;
+                dp[w] = Math.max(dp[w], dp[tempW] + items[i][1]);
+                answer = Math.max(dp[w], answer);
             }
         }
-        System.out.println(dp[N][M]);
+        System.out.println(answer);
     }
 }
