@@ -26,9 +26,9 @@ public class Main {
                     if (dp[i-1][j] != Integer.MIN_VALUE) {  // 현재값을 마지막으로 하는 부분 수열
                         dp[i][j] = dp[i - 1][j] + number[i];
                     }
-                    if (dp[i][0] == Integer.MIN_VALUE) {
-                        dp[i][0] = number[i];   // 현재값을 시작으로 하는 부분 수열
-                    } else {
+                    if (dp[i][0] == Integer.MIN_VALUE) {    // 현재값을 시작으로 하는 부분 수열
+                        dp[i][0] = number[i];   
+                    } else {    // 갱신된 적 있다면 더 큰 값을 저장
                         dp[i][0] = Math.max(dp[i][0], number[i]);
                     }
                 } else {    // 음수
@@ -37,7 +37,7 @@ public class Main {
                     }
                     if (dp[i][1] == Integer.MIN_VALUE) {    // 현재값을 시작으로 하는 부분 수열
                         dp[i][1] = number[i];
-                    } else {
+                    } else {    // 갱신된 적 있다면 더 큰 값을 저장
                         dp[i][1] = Math.max(dp[i][1], number[i]);
                     }
 
