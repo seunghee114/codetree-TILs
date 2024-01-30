@@ -18,12 +18,16 @@ public class Main {
             if (A[i] == B[0]) {
                 dp[i][0] = 1;
             }
+            if (i == 0) continue;
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i][0]);
         }
 
         for (int j = 0; j < BLen; j++) {
             if (A[0] == B[j]) {
                 dp[0][j] = 1;
             }
+            if (j == 0) continue;
+            dp[0][j] = Math.max(dp[0][j - 1], dp[0][j]);
         }
         // end dp init
 
@@ -37,5 +41,7 @@ public class Main {
             }
         }
         System.out.println(dp[ALen - 1][BLen - 1]);
+
+
     }
 }
