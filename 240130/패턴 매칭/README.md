@@ -5,10 +5,27 @@
 |[Intermediate Low / DP II / String Matching](https://www.codetree.ai/missions?missionId=2)|60xp|![보통][medium]|
 
 
+## 시도한 테스트 케이스
+```
+bbc
+a*b*c
 
+true
+```
 
+```
+a
+a
 
+true
+```
 
+```
+a
+ab
+
+false
+```
 
 
 [b5]: https://img.shields.io/badge/Bronze_5-%235D3E31.svg
