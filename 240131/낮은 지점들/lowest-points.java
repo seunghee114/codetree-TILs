@@ -15,7 +15,7 @@ public class Main {
             int temp = pnts.getOrDefault(x, Integer.MAX_VALUE);
             pnts.put(x, Math.min(temp, y));
         }
-        int answer = 0;
+        long answer = 0;
         for (Integer value : pnts.values()) {
             answer += value;
         }
