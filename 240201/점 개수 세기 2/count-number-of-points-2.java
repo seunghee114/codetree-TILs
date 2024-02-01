@@ -43,9 +43,9 @@ public class Main {
     // (x2, y2) : 우하단
     static int inRange(Integer x1, Integer y1, Integer x2, Integer y2) {
         // key 값 구하기
-        x1 = Optional.ofNullable(xMapper.floorKey(x1)).orElse(0);
+        x1 = Optional.ofNullable(xMapper.ceilingKey(x1)).orElse(0);
         x2 = Optional.ofNullable(xMapper.floorKey(x2)).orElse(0);
-        y1 = Optional.ofNullable(yMapper.floorKey(y1)).orElse(0);
+        y1 = Optional.ofNullable(yMapper.ceilingKey(y1)).orElse(0);
         y2 = Optional.ofNullable(yMapper.floorKey(y2)).orElse(0);
 
         // value 값 구하기. 압축된 좌표값
