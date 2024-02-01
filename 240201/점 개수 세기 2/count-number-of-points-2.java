@@ -23,9 +23,7 @@ public class Main {
         }
         xMapper = gridCompression(xPQ);
         yMapper = gridCompression(yPQ);
-
         sum = prefixSum(xMapper.size(), yMapper.size(), pnts);
-
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < Q; i++) {
             inArr = br.readLine().split(" ");
@@ -33,7 +31,8 @@ public class Main {
             int y1 = Integer.parseInt(inArr[1]);
             int x2 = Integer.parseInt(inArr[2]);
             int y2 = Integer.parseInt(inArr[3]);
-            sb.append(inRange(Math.min(x1, x2), Math.min(y1, y2), Math.max(x1, x2), Math.max(y1, y2)));
+            int ans = inRange(Math.min(x1, x2), Math.min(y1, y2), Math.max(x1, x2), Math.max(y1, y2));
+            sb.append(ans);
             sb.append("\n");
         }
         System.out.println(sb);
@@ -43,15 +42,15 @@ public class Main {
     // (x2, y2) : 우하단
     static int inRange(Integer x1, Integer y1, Integer x2, Integer y2) {
         // key 값 구하기
-        x1 = Optional.ofNullable(xMapper.ceilingKey(x1)).orElse(0);
+        x1 = Optional.ofNullable(xMapper.ceilingKey(x1)).orElse(xMapper.size()+1);
         x2 = Optional.ofNullable(xMapper.floorKey(x2)).orElse(0);
-        y1 = Optional.ofNullable(yMapper.ceilingKey(y1)).orElse(0);
+        y1 = Optional.ofNullable(yMapper.ceilingKey(y1)).orElse(yMapper.size()+1);
         y2 = Optional.ofNullable(yMapper.floorKey(y2)).orElse(0);
 
         // value 값 구하기. 압축된 좌표값
-        x1 = xMapper.getOrDefault(x1, 0);
+        x1 = xMapper.getOrDefault(x1, xMapper.size()+1);
         x2 = xMapper.getOrDefault(x2, 0);
-        y1 = yMapper.getOrDefault(y1, 0);
+        y1 = yMapper.getOrDefault(y1, yMapper.size()+1);
         y2 = yMapper.getOrDefault(y2, 0);
 
         int answer = sum[x2][y2];
