@@ -6,7 +6,7 @@ public class Main {
         long S = Long.parseLong(br.readLine());
         long answer = -1;
         long left = 1; 
-        long right = 1000000000;
+        long right = 10000000000L;
         while(left <= right){
             long mid = (left+right) / 2;
             long sum = (mid * (mid+1)) / 2;
