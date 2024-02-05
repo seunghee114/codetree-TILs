@@ -12,25 +12,13 @@ public class Main {
         long start = 1;
         long end = 10000000000L;
         long answer = 0;
-        long temp = (start + end) / 2;
-        while(start < end){
+        while(start <= end){
             long mid = (start + end) / 2;
             // num : 3, 5의 배수 빼고 숫자의 개수
             long num = mid - ( mid / 3 + mid / 5 - mid / 15);
-            if(mid % 3 == 0 || mid % 5 == 0){
-                if(num > N){
-                    end = mid -1;
-                }else if(num < N){
-                    start = mid + 1;
-                }else{
-                    answer = mid-1;
-                    break;
-                }
-                continue;
-            }
             if(num == N){
-                answer = mid;          
-                break;      
+                answer = mid % 3 == 0 || mid % 5 == 0 ? mid-1 : mid;
+                break;
             }else if(num > N){
                 end = mid - 1;
             }else{
