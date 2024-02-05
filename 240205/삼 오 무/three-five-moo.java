@@ -17,7 +17,10 @@ public class Main {
             // num : 3, 5의 배수 빼고 숫자의 개수
             long num = mid - ( mid / 3 + mid / 5 - mid / 15);
             if(num == N){
-                answer = mid % 3 == 0 || mid % 5 == 0 ? mid-1 : mid;
+                answer = mid;
+                while (answer % 3 == 0 || answer % 5 == 0) {
+                    answer--;
+                }
                 break;
             }else if(num > N){
                 end = mid - 1;
