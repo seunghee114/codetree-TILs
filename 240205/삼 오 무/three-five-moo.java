@@ -1,0 +1,42 @@
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        if(N == 1){
+            System.out.println(1);
+            System.exit(0);
+        }
+
+        long start = 1;
+        long end = 10000000000L;
+        long answer = 0;
+        long temp = (start + end) / 2;
+        while(start < end){
+            long mid = (start + end) / 2;
+            // num : 3, 5의 배수 빼고 숫자의 개수
+            long num = mid - ( mid / 3 + mid / 5 - mid / 15);
+            if(mid % 3 == 0 || mid % 5 == 0){
+                if(num > N){
+                    end = mid -1;
+                }else if(num < N){
+                    start = mid + 1;
+                }else{
+                    answer = mid-1;
+                    break;
+                }
+                continue;
+            }
+            if(num == N){
+                answer = mid;          
+                break;      
+            }else if(num > N){
+                end = mid - 1;
+            }else{
+                start = mid + 1;
+            }
+        }
+        System.out.println(answer);
+    }
+}
