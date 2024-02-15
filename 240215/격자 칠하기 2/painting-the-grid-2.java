@@ -27,10 +27,7 @@ public class Main {
     static void binarySearch() {
         int start = 0;
         int end = 1000000;
-        int cnt = 0;
         while (start <= end) {
-            cnt++;
-            if (cnt == 1000000000) break;
             int mid = (start + end) / 2;
             // 색칠된 칸이 전체 칸의 반 이상이라면 -> 좀 덜 색칠해보자
             if (isColored(mid)) {
@@ -43,19 +40,25 @@ public class Main {
     }
 
     private static boolean isColored(int d) {
+        int count = 0;
+        boolean[][] visit = new boolean[N][N];
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (coloring(i, j, d)) return true;
+                if (visit[i][j]) continue;
+                count = Math.max(coloring(i, j, d, visit), count);
             }
         }
+        // 반올림해서 하기 때문에 +1 한 다음에 2로 나누기
+        int half = (N * N + 1) / 2;
+        // 방문한 곳이 half개 이상이면 true
+        if (count >= half) return true;
         return false;
     }
 
     static int[] di = {-1, 1, 0, 0};
     static int[] dj = {0, 0, -1, 1};
-    private static boolean coloring(int i, int j, int d) {
+    private static int coloring(int i, int j, int d, boolean[][] visit) {
         Queue<int[]> Q = new ArrayDeque<>();
-        boolean[][] visit = new boolean[N][N];
         Q.add(new int[]{i, j});
         visit[i][j] = true;
         int cnt = 1;
@@ -74,10 +77,6 @@ public class Main {
                 cnt++;
             }
         }
-        // 반올림해서 하기 때문에 +1 한 다음에 2로 나누기
-        int half = (N * N + 1) / 2;
-        // 방문한 곳이 half개 이상이면 true
-        if (cnt >= half) return true;
-        return false;
+        return cnt;
     }
 }
