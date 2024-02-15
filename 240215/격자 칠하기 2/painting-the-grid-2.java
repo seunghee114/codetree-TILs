@@ -27,9 +27,11 @@ public class Main {
     static void binarySearch() {
         int start = 0;
         int end = 1000000;
+        int cnt = 0;
         while (start <= end) {
+            cnt++;
+            if (cnt == 1000000000) break;
             int mid = (start + end) / 2;
-
             // 색칠된 칸이 전체 칸의 반 이상이라면 -> 좀 덜 색칠해보자
             if (isColored(mid)) {
                 end = mid - 1;
