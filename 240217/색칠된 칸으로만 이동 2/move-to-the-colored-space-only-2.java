@@ -59,8 +59,9 @@ public class Main {
                 int nj = poll[1] + dj[k];
                 // 범위 벗어나면 안됨
                 if (ni < 0 || nj < 0 || ni >= N || nj >= M) continue;
-                int d = Math.abs(Number[poll[0]][poll[1]] - Number[ni][nj]);
-                // 이미 적거나 같 차이로 왔었으면 볼 필요 없음
+                int d = Math.max(visit[poll[0]][poll[1]],
+                    Math.abs(Number[poll[0]][poll[1]] - Number[ni][nj]));
+                // 이미 적거나 같은 차이로 왔었으면 볼 필요 없음
                 if (visit[ni][nj] <= d) continue;
                 Q.add(new int[]{ni, nj});
                 visit[ni][nj] = d;
